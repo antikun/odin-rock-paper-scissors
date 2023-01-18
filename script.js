@@ -1,22 +1,22 @@
-let choice = Math.floor(Math.random() * 3) + 1;
-console.log(choice)
+let randomNum;
 
-function getComputerChoice(num) {
-    console.log(arguments)
-    if (num === 1) {
+function getComputerChoice(randomNum) {
+    randomNum = Math.floor(Math.random() * 3) + 1;
+    if (randomNum === 1) {
         return "rock";
-    } else if (num === 2) {
+    } else if (randomNum === 2) {
         return "paper";
     } else {
         return "scissors";
     }
 }
 
-const computerSelection = getComputerChoice(choice);
+let computerSelection;
 
 let playerSelection;
 
 function playRound(playerSelection, computerSelection) {
+    computerSelection = getComputerChoice(randomNum);
     playerSelection = prompt("Rock, paper, or scissors? Make your choice").toLowerCase();
     const capitalize = (str) => {
         let firstLetter = str.slice(0, 1).toUpperCase();
@@ -34,10 +34,22 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+
+let roundsNum;
+
 function game(num) {
-    // let roundsNum = parseInt(prompt("Enter number of rounds"))
     for (let i = 0; i < num; i++) {
         let result = playRound(playerSelection, computerSelection);
         console.log(result)
     }
+}
+
+const gameStart = prompt("A game of Rock, Paper, Scissors? Type in \"start\"");
+if (gameStart == null) {
+    console.log("Oh, okay. Maybe next time!")
+} else if (gameStart.toLowerCase() === "start") {
+    roundsNum = parseInt(prompt("Enter number of rounds"));
+    game(roundsNum);
+} else {
+    console.log("Mistyped \"start\"? Try again?")
 }
