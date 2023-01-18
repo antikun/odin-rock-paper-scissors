@@ -4,34 +4,40 @@ console.log(choice)
 function getComputerChoice(num) {
     console.log(arguments)
     if (num === 1) {
-        console.log("Rock");
-        return "Rock";
+        return "rock";
     } else if (num === 2) {
-        console.log("Paper");
-        return "Paper";
+        return "paper";
     } else {
-        console.log("Scissors");
-        return "Scissors";
+        return "scissors";
     }
 }
 
 const computerSelection = getComputerChoice(choice);
 
-const playerSelection = prompt("Rock, paper, or scissors? Make your choice").toLowerCase();
+let playerSelection;
 
 function playRound(playerSelection, computerSelection) {
+    playerSelection = prompt("Rock, paper, or scissors? Make your choice").toLowerCase();
     const capitalize = (str) => {
         let firstLetter = str.slice(0, 1).toUpperCase();
         let restOfStr = str.slice(1).toLowerCase()
         return firstLetter + restOfStr;
     }
-    if (playerSelection === "rock" && computerSelection === "Scissors" ||
-        playerSelection === "scissors" && computerSelection === "Paper" ||
-        playerSelection === "paper" && computerSelection === "Rock") {
-        return `You win! ${capitalize(playerSelection)} beats ${computerSelection}.`
+    if (playerSelection === "rock" && computerSelection === "scissors" ||
+        playerSelection === "scissors" && computerSelection === "paper" ||
+        playerSelection === "paper" && computerSelection === "rock") {
+        return `You win! ${capitalize(playerSelection)} beats ${capitalize(computerSelection)}.`;
     } else if (playerSelection === computerSelection) {
-        return `It's a draw!`
+        return `It's a draw!`;
     } else {
-        return `You lose! ${computerSelection} beats ${capitalize(playerSelection)}.`
+        return `You lose! ${capitalize(computerSelection)} beats ${capitalize(playerSelection)}.`;
+    }
+}
+
+function game(num) {
+    // let roundsNum = parseInt(prompt("Enter number of rounds"))
+    for (let i = 0; i < num; i++) {
+        let result = playRound(playerSelection, computerSelection);
+        console.log(result)
     }
 }
