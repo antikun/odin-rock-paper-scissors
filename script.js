@@ -1,32 +1,37 @@
 let choice = Math.floor(Math.random() * 3) + 1;
 console.log(choice)
 
-function getComputerChoice(choice) {
+function getComputerChoice(num) {
     console.log(arguments)
-    if (choice === 1) {
-        console.log("rock");
-        return "rock";
-    } else if (choice === 2) {
-        console.log("paper");
-        return "paper";
+    if (num === 1) {
+        console.log("Rock");
+        return "Rock";
+    } else if (num === 2) {
+        console.log("Paper");
+        return "Paper";
     } else {
-        console.log("scissors");
-        return "scissors";
+        console.log("Scissors");
+        return "Scissors";
     }
 }
 
 const computerSelection = getComputerChoice(choice);
 
-const playerSelection = "rock";
+const playerSelection = prompt("Rock, paper, or scissors? Make your choice").toLowerCase();
 
 function playRound(playerSelection, computerSelection) {
-    if (playerSelection === "rock" && computerSelection === "scissors" ||
-        playerSelection === "scissors" && computerSelection === "paper" ||
-        playerSelection === "paper" && computerSelection === "rock") {
-        return `You win! ${playerSelection} beats ${computerSelection}.`
+    const capitalize = (str) => {
+        let firstLetter = str.slice(0, 1).toUpperCase();
+        let restOfStr = str.slice(1).toLowerCase()
+        return firstLetter + restOfStr;
+    }
+    if (playerSelection === "rock" && computerSelection === "Scissors" ||
+        playerSelection === "scissors" && computerSelection === "Paper" ||
+        playerSelection === "paper" && computerSelection === "Rock") {
+        return `You win! ${capitalize(playerSelection)} beats ${computerSelection}.`
     } else if (playerSelection === computerSelection) {
         return `It's a draw!`
     } else {
-        return `You lose! ${computerSelection} beats ${playerSelection}.`
+        return `You lose! ${computerSelection} beats ${capitalize(playerSelection)}.`
     }
 }
