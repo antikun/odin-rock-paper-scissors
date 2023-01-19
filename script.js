@@ -43,19 +43,19 @@ function playRound(playerSelection, computerSelection) {
 }
 
 
-let roundsNum;
-
 function game(num) {
     for (let i = 0; i < num; i++) {
         playRound(playerSelection, computerSelection);
     }
+    while (playerWins === computerWins) {
+        console.log("It's a draw! Play one more round!")
+        playRound(playerSelection, computerSelection)
+    }
     console.log("*****************************");
     if (playerWins > computerWins) {
         console.log("Congrats! You won the game!");
-    } else if (playerWins === computerWins) {
-        console.log("Ah, too bad! You lost the game!");
     } else {
-        console.log("It's a draw!")
+        console.log("Ah, too bad! You lost the game!");
     }
     console.log("*****************************");
 }
@@ -64,8 +64,7 @@ const gameStart = prompt("A game of Rock, Paper, Scissors? Type in \"start\"");
 if (gameStart == null) {
     console.log("Oh, okay. Maybe next time!")
 } else if (gameStart.toLowerCase() === "start") {
-    roundsNum = parseInt(prompt("Enter number of rounds"));
-    game(roundsNum);
+    game(5);
 } else {
     console.log("Mistyped \"start\"? Try again?")
 }
