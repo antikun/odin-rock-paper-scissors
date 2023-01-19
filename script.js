@@ -15,6 +15,9 @@ let computerSelection;
 
 let playerSelection;
 
+let playerWins = 0;
+let computerWins = 0;
+
 function playRound(playerSelection, computerSelection) {
     computerSelection = getComputerChoice(randomNum);
     playerSelection = prompt("Rock, paper, or scissors? Make your choice").toLowerCase();
@@ -26,10 +29,15 @@ function playRound(playerSelection, computerSelection) {
     if (playerSelection === "rock" && computerSelection === "scissors" ||
         playerSelection === "scissors" && computerSelection === "paper" ||
         playerSelection === "paper" && computerSelection === "rock") {
+        playerWins++;
+        console.log(`You win! ${capitalize(playerSelection)} beats ${capitalize(computerSelection)}.`)
         return `You win! ${capitalize(playerSelection)} beats ${capitalize(computerSelection)}.`;
     } else if (playerSelection === computerSelection) {
+        console.log(`It's a draw!`)
         return `It's a draw!`;
     } else {
+        computerWins++;
+        console.log(`You lose! ${capitalize(computerSelection)} beats ${capitalize(playerSelection)}.`)
         return `You lose! ${capitalize(computerSelection)} beats ${capitalize(playerSelection)}.`;
     }
 }
@@ -39,9 +47,17 @@ let roundsNum;
 
 function game(num) {
     for (let i = 0; i < num; i++) {
-        let result = playRound(playerSelection, computerSelection);
-        console.log(result)
+        playRound(playerSelection, computerSelection);
     }
+    console.log("*****************************");
+    if (playerWins > computerWins) {
+        console.log("Congrats! You won the game!");
+    } else if (playerWins === computerWins) {
+        console.log("Ah, too bad! You lost the game!");
+    } else {
+        console.log("It's a draw!")
+    }
+    console.log("*****************************");
 }
 
 const gameStart = prompt("A game of Rock, Paper, Scissors? Type in \"start\"");
