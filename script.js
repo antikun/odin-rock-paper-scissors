@@ -26,6 +26,9 @@ function playRound(playerSelection, computerSelection) {
         let restOfStr = str.slice(1).toLowerCase()
         return firstLetter + restOfStr;
     }
+    while (playerSelection !== "rock" && playerSelection !== "paper" && playerSelection !== "scissors") {
+        playerSelection = prompt("Invalid entry. Please, choose rock, paper, or scissors.").toLowerCase();
+    }
     if (playerSelection === "rock" && computerSelection === "scissors" ||
         playerSelection === "scissors" && computerSelection === "paper" ||
         playerSelection === "paper" && computerSelection === "rock") {
