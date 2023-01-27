@@ -1,0 +1,22 @@
+h3 {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.container {}
+
+.score-table {
+    margin-right: 2rem;
+    outline: 1px solid black;
+}
+
+.play-to-section {
+    padding-top: 2rem;
+}
