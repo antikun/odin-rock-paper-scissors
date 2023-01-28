@@ -10,14 +10,17 @@ const tieScore = document.querySelector(".ties");
 const playTo = document.querySelector("#play-to")
 let winningScore = parseInt(playTo.value);
 
+const roundResult = document.querySelector("#win-lose-result");
+const playAgain = document.querySelector("#play-again");
+
 function getComputerChoice() {
     const randomNum = Math.floor(Math.random() * 3) + 1;
     if (randomNum === 1) {
-        return "rock";
+        return "Rock";
     } else if (randomNum === 2) {
-        return "paper";
+        return "Paper";
     } else {
-        return "scissors";
+        return "Scissors";
     }
 }
 
@@ -29,46 +32,53 @@ let playerSelection;
 let computerSelection;
 
 function playRound(player, computer) {
-    if (player === "rock" && computer === "scissors" ||
-        player === "scissors" && computer === "paper" ||
-        player === "paper" && computer === "rock") {
+    if (player === "Rock" && computer === "Scissors" ||
+        player === "Scissors" && computer === "Paper" ||
+        player === "Paper" && computer === "Rock") {
         playerWins++;
         playerScore.textContent = playerWins;
+        roundResult.textContent = `You win! ${player} beats ${computer}!`;
     } else if (player === computer) {
         ties++;
         tieScore.textContent = ties;
+        roundResult.textContent = `It's a tie!`;
     } else {
         computerWins++;
         computerScore.textContent = computerWins;
+        roundResult.textContent = `You lose! ${computer} beats ${player}`;
     }
 }
 
 let isGameOver = false;
-const win = document.querySelector(".win");
 
 function game() {
     if (!isGameOver) {
         playRound(playerSelection, computerSelection);
-    } if (playerScore.textContent == winningScore || computerScore.textContent == winningScore) {
+    } if (playerScore.textContent == winningScore) {
         isGameOver = true;
-        win.style.color = "green";
+        roundResult.textContent = `Congrats! You won the game!`;
+        playAgain.textContent = "Play again?";
+    } if (computerScore.textContent == winningScore) {
+        isGameOver = true;
+        roundResult.textContent = `Oh no! You lost the game!`
+        playAgain.textContent = "Play again?";
     }
 }
 
 rock.addEventListener("click", () => {
-    playerSelection = "rock";
+    playerSelection = "Rock";
     computerSelection = getComputerChoice();
     game();
 })
 
 paper.addEventListener("click", () => {
-    playerSelection = "paper";
+    playerSelection = "Paper";
     computerSelection = getComputerChoice();
     game();
 })
 
 scissors.addEventListener("click", () => {
-    playerSelection = "scissors";
+    playerSelection = "Scissors";
     computerSelection = getComputerChoice();
     game();
 })
@@ -81,7 +91,8 @@ function resetGame() {
     playerScore.textContent = 0;
     computerScore.textContent = 0;
     tieScore.textContent = 0;
-    win.style.color = "black"
+    roundResult.textContent = "";
+    playAgain.textContent = "";
 }
 
 resetBtn.addEventListener("click", resetGame);
@@ -90,3 +101,5 @@ playTo.addEventListener("change", () => {
     winningScore = parseInt(playTo.value);
     resetGame();
 })
+
+playAgain.addEventListener("click", resetGame);
