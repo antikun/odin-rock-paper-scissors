@@ -1,30 +1,33 @@
-h3 {
-    margin: 0;
-    padding: 0;
-}
-
 body {
     margin: 0;
     padding: 0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .container {
-    width: auto;
+    display: flex;
+    flex-direction: row;
 }
 
 .icon {
     width: 100px;
     height: auto;
-    border: 1px solid black;
+    border: 5px solid black;
+    border-radius: 0.25rem;
 }
 
 .score-table {
-    margin-right: 2rem;
     outline: 1px solid black;
 }
 
 .play-to-section {
-    padding-top: 2rem;
+    padding: 1rem;
+}
+
+.result-display {
+    height: 300px;
+    width: auto;
 }

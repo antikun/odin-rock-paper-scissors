@@ -10,15 +10,26 @@
 </head>
 
 <body>
-    <header class="score-table">
-        <h3>Score:</h3>
-        <p class="player-score">Player: <span class="player-wins">0</span></p>
-        <p class="computer-score">Computer: <span class="computer-wins">0</span></p>
-        <p class="tie-score">Tie: <span class="ties">0</span></p>
+    <header>
+        <h1>Rock, Paper, Scissors</h1>
+        <h3>Play against the computer</h3>
+        <div class="play-to-section">
+            <label for="play-to" class="play-to">Play to</label>
+            <select id="play-to">
+                <option value="3" selected>3</option>
+                <option value="3">5</option>
+                <option value="3">7</option>
+            </select>
+        </div>
+        <div class="score-table">
+            <p class="player-score">Player: <span class="player-wins">0</span></p>
+            <p class="computer-score">Computer: <span class="computer-wins">0</span></p>
+            <p class="tie-score">Tie: <span class="ties">0</span></p>
+        </div>
     </header>
 
-    <div class="container">
-        <main class="game-field">
+    <main class="container">
+        <div class="game-field">
             <section class="computer-icons">
                 <img src="./images-rps/rock.svg" class="icon">
                 <img src="./images-rps/paper.svg" class="icon">
@@ -26,8 +37,10 @@
             </section>
 
             <section class="result-display">
+                <div class="rps-choice"></div>
                 <p id="win-lose-result" class="win-lose"></p>
                 <p id="play-again" class="win-lose"></p>
+                <div class="rps-choice"></div>
             </section>
 
             <section class="player-icons">
@@ -36,25 +49,17 @@
                 <img src="./images-rps/scissors.svg" id="scissors" class="icon">
             </section>
 
-            <div class="play-to-section">
-                <label for="play-to" class="play-to">Play to</label>
-                <select id="play-to">
-                    <option value="3" selected>3</option>
-                    <option value="3">5</option>
-                    <option value="3">7</option>
-                </select>
-            </div>
-
             <div class="reset">
                 <button id="reset-btn" class="reset-btn">Reset</button>
             </div>
-        </main>
+        </div>
+    </main>
 
-        <footer class="footer">
-            <p class="author">Page created by antikun.</p>
-            <p class="credits">Pictures by Someone</p>
-        </footer>
-    </div>
+    <footer class="footer">
+        <p class="author">Page created by antikun.</p>
+        <p class="credits">Pictures by Someone</p>
+    </footer>
+
 
 
     <script src="./script.js"></script>
