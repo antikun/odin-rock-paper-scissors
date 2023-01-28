@@ -7,12 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:wght@100;300;400;600;800&family=Overlock+SC&family=Play:wght@400;700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
     <header>
-        <h1>Rock, Paper, Scissors</h1>
-        <h3>Play against the computer</h3>
+        <div class="header">
+            <h1>Rock, Paper, Scissors</h1>
+            <h3>Play against the computer</h3>
+        </div>
+
         <div class="play-to-section">
             <label for="play-to" class="play-to">Play to</label>
             <select id="play-to">
@@ -21,15 +29,18 @@
                 <option value="3">7</option>
             </select>
         </div>
-        <div class="score-table">
-            <p class="player-score">Player: <span class="player-wins">0</span></p>
-            <p class="computer-score">Computer: <span class="computer-wins">0</span></p>
-            <p class="tie-score">Tie: <span class="ties">0</span></p>
-        </div>
+
     </header>
 
     <main class="container">
         <div class="game-field">
+            <h3>Score:</h3>
+            <ul class="score-table">
+                <li class="player-score">Player: <span class="player-wins">0</span></li>
+                <li class="computer-score">Computer: <span class="computer-wins">0</span></li>
+                <li class="tie-score">Tie: <span class="ties">0</span></li>
+            </ul>
+
             <section class="computer-icons">
                 <img src="./images-rps/rock.svg" class="icon">
                 <img src="./images-rps/paper.svg" class="icon">
@@ -44,16 +55,16 @@
             </section>
 
             <section class="player-icons">
-                <img src="./images-rps/rock.svg" id="rock" class="icon">
-                <img src="./images-rps/paper.svg" id="paper" class="icon">
-                <img src="./images-rps/scissors.svg" id="scissors" class="icon">
+                <button id="rock" class="icon"></button>
+                <button id="paper" class="icon"></button>
+                <button id="scissors" class="icon"></button>
             </section>
-
-            <div class="reset">
-                <button id="reset-btn" class="reset-btn">Reset</button>
-            </div>
         </div>
     </main>
+
+    <div class="reset">
+        <button id="reset-btn" class="reset-btn">Reset</button>
+    </div>
 
     <footer class="footer">
         <p class="author">Page created by antikun.</p>
