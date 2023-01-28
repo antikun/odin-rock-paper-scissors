@@ -10,7 +10,15 @@ body {
     justify-content: center;
 }
 
-.container {}
+.container {
+    width: auto;
+}
+
+.icon {
+    width: 100px;
+    height: auto;
+    border: 1px solid black;
+}
 
 .score-table {
     margin-right: 2rem;
