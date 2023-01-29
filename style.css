@@ -124,6 +124,15 @@ h3 {
     fill: #b6f3ec;
 }
 
+.player-btn:hover {
+    box-shadow: 0 0 0.3rem #4a6ca7;
+    cursor: pointer;
+}
+
+.player-btn:active {
+    border-style: none;
+}
+
 .result-display {
     display: flex;
     flex-direction: column;
@@ -200,6 +209,11 @@ h3 {
     background-image: linear-gradient(rgba(245, 155, 155, 0.2), rgba(245, 155, 155, 0.2)),
         -webkit-linear-gradient(bottom, #5d0023 50%, #ff2276 50%, #5d0023);
     color: #290211;
+    cursor: pointer;
+}
+
+.reset-btn:active {
+    transform: scaleX(0.99);
 }
 
 .author {
