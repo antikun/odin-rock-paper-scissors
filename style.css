@@ -21,8 +21,12 @@ body {
     flex-direction: row;
     margin: 0 20%;
     padding: 0 1rem 1rem 1rem;
-    background-image: linear-gradient(to top right,
-            #3c096c, #7b2cbf)
+    background-image:
+        radial-gradient(at top,
+            rgba(18, 130, 162, 0.2), rgba(0, 19, 53, 0.2)),
+        linear-gradient(to top left,
+            #001335, #002668 55%, #001f54 55%, #001335);
+    border: 0.8rem groove #4a6ca7;
 }
 
 h1,
