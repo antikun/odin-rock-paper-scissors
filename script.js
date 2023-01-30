@@ -31,7 +31,9 @@ let ties = 0;
 
 function playRound(p1, index1, p2, index2) {
     p2.btn[index2].classList.add("select-c");
-    if (index1 > index2) {
+    if (index1 === 0 && index2 === 2 ||
+        index1 === 2 && index2 === 1 ||
+        index1 === 1 && index2 === 0) {
         p1.score++;
         p1.display.textContent = p1.score;
         p1.btn[index1].classList.add("winner");

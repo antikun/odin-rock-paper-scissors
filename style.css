@@ -139,8 +139,7 @@ h3 {
     fill: #b6f3ec;
 }
 
-.player-btn:hover,
-.player-btn:focus {
+.player-btn:hover {
     box-shadow: 0 0 0.3rem #4a6ca7;
     cursor: pointer;
 }
@@ -158,11 +157,12 @@ h3 {
     align-items: center;
     height: 200px;
     width: auto;
+    font-size: 1.3rem;
 }
 
 .win-lose {
     white-space: pre;
-    line-height: 1.5rem;
+    line-height: 2rem;
 }
 
 #play-again::after {
