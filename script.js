@@ -1,95 +1,121 @@
-const rock = document.querySelector("#rock");
-const paper = document.querySelector("#paper");
-const scissors = document.querySelector("#scissors");
+const computer = {
+    score: 0,
+    btn: [document.querySelector("#computer-rock"), document.querySelector("#computer-paper"), document.querySelector("#computer-scissors")],
+    choice: ["Rock", "Paper", "Scissors"],
+    display: document.querySelector(".computer-wins")
+}
+
+const player = {
+    score: 0,
+    btn: [document.querySelector("#rock"), document.querySelector("#paper"), document.querySelector("#scissors")],
+    choice: ["Rock", "Paper", "Scissors"],
+    display: document.querySelector(".player-wins")
+}
+
 const resetBtn = document.querySelector("#reset-btn");
 
-const playerScore = document.querySelector(".player-wins");
-const computerScore = document.querySelector(".computer-wins");
 const tieScore = document.querySelector(".ties");
 
 const playTo = document.querySelector("#play-to")
-let winningScore = parseInt(playTo.value);
+let winningScore = 3;
 
 const roundResult = document.querySelector("#win-lose-result");
 const playAgain = document.querySelector("#play-again");
 
-function getComputerChoice() {
-    const randomNum = Math.floor(Math.random() * 3) + 1;
-    if (randomNum === 1) {
-        return "Rock";
-    } else if (randomNum === 2) {
-        return "Paper";
-    } else {
-        return "Scissors";
-    }
+function getComputerChoice(p) {
+    const randomNum = Math.floor(Math.random() * 3);
+    p.btn[randomNum].classList.add("select-c");
+    return randomNum;
 }
 
-let playerWins = 0;
-let computerWins = 0;
 let ties = 0;
 
-let playerSelection;
-let computerSelection;
-
-function playRound(player, computer) {
-    if (player === "Rock" && computer === "Scissors" ||
-        player === "Scissors" && computer === "Paper" ||
-        player === "Paper" && computer === "Rock") {
-        playerWins++;
-        playerScore.textContent = playerWins;
-        roundResult.textContent = `You win! ${player} beats ${computer}!`;
-    } else if (player === computer) {
+function playRound(p1, index1, p2, index2) {
+    if (index1 > index2) {
+        p1.score++;
+        p1.display.textContent = p1.score;
+        p1.btn[index1].classList.add("winner");
+        p2.btn[index2].classList.add("loser");
+        roundResult.textContent = `You win this round! \r\n ${p1.choice[index1]} beats ${p2.choice[index2]}!`;
+    } else if (index1 === index2) {
         ties++;
         tieScore.textContent = ties;
         roundResult.textContent = `It's a tie!`;
     } else {
-        computerWins++;
-        computerScore.textContent = computerWins;
-        roundResult.textContent = `You lose! ${computer} beats ${player}!`;
+        p2.score++;
+        p2.display.textContent = p2.score;
+        p1.btn[index1].classList.toggle("loser");
+        p2.btn[index2].classList.toggle("winner");
+        roundResult.textContent = `You lose this round! \r\n ${p2.choice[index2]} beats ${p1.choice[index1]}!`;
     }
 }
 
 let isGameOver = false;
 
-function game() {
+function game(p1, index1, p2, index2) {
     if (!isGameOver) {
-        playRound(playerSelection, computerSelection);
-    } if (playerScore.textContent == winningScore) {
+        playRound(p1, index1, p2, index2);
+    } if (p1.score == winningScore) {
         isGameOver = true;
-        roundResult.textContent = `Congrats! You won the game!`;
+        roundResult.textContent = `CONGRATS! \r\n YOU WON THE GAME!`;
         playAgain.textContent = "Play again?";
-    } if (computerScore.textContent == winningScore) {
+        setDisabled();
+    } if (p2.score == winningScore) {
         isGameOver = true;
-        roundResult.textContent = `Oh no! You lost the game!`
+        roundResult.textContent = `OH NO! \r\n YOU LOST THE GAME!`
         playAgain.textContent = "Play again?";
+        setDisabled();
     }
 }
 
-rock.addEventListener("click", () => {
-    playerSelection = "Rock";
-    computerSelection = getComputerChoice();
-    game();
+function setDisabled() {
+    for (let i = 0; i < 3; i++) {
+        player.btn[i].setAttribute("disabled", true);
+    }
+}
+
+function removeDisabled() {
+    for (let i = 0; i < 3; i++) {
+        player.btn[i].removeAttribute("disabled", true);
+    }
+}
+
+function clearSelection(p1, p2) {
+    for (let i = 0; i < 3; i++) {
+        p1.btn[i].classList.remove("select-p");
+        p2.btn[i].classList.remove("select-c");
+        player.btn[i].classList.remove("winner", "loser");
+        computer.btn[i].classList.remove("winner", "loser");
+    }
+}
+
+player.btn[0].addEventListener("click", () => {
+    clearSelection(player, computer);
+    player.btn[0].classList.add("select-p");
+    game(player, 0, computer, getComputerChoice(computer));
 })
 
-paper.addEventListener("click", () => {
-    playerSelection = "Paper";
-    computerSelection = getComputerChoice();
-    game();
+player.btn[1].addEventListener("click", () => {
+    clearSelection(player, computer);
+    player.btn[1].classList.add("select-p");
+    game(player, 1, computer, getComputerChoice(computer));
 })
 
-scissors.addEventListener("click", () => {
-    playerSelection = "Scissors";
-    computerSelection = getComputerChoice();
-    game();
+player.btn[2].addEventListener("click", () => {
+    clearSelection(player, computer);
+    player.btn[2].classList.add("select-p");
+    game(player, 2, computer, getComputerChoice(computer));
 })
 
 function resetGame() {
     isGameOver = false;
-    playerWins = 0;
-    computerWins = 0;
+    clearSelection(player, computer);
+    removeDisabled();
+    player.score = 0;
+    computer.score = 0;
     ties = 0;
-    playerScore.textContent = 0;
-    computerScore.textContent = 0;
+    player.display.textContent = 0;
+    computer.display.textContent = 0;
     tieScore.textContent = 0;
     roundResult.textContent = "";
     playAgain.textContent = "";

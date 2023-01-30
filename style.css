@@ -1,3 +1,5 @@
+/* BASIC STYLING */
+
 html {
     font-family: "Play", sans-serif;
     font-size: 18px;
@@ -40,6 +42,11 @@ h3 {
     margin: 0.5rem 0;
 }
 
+.author {
+    margin: 0 auto;
+    font-weight: 100;
+}
+
 .play-to-section {
     padding: 0.5rem;
     color: #4a6ca7;
@@ -53,6 +60,10 @@ h3 {
     width: 100vh;
     height: 3px;
 }
+
+/* BASIC STYLING END */
+
+/* GAME DISPLAY */
 
 .score-table {
     padding: 0;
@@ -78,6 +89,8 @@ h3 {
     margin-right: 2.5rem;
 }
 
+/* BUTTONS STYLING START */
+
 .computer-icons {
     display: flex;
     flex-direction: row;
@@ -93,6 +106,7 @@ h3 {
     border-radius: 0.25rem;
     box-shadow: -2px -2px 2px 1px rgba(0, 0, 0, 0.2);
     margin: 0 1rem;
+    transition: transform 250ms;
 }
 
 .icon svg {
@@ -117,6 +131,7 @@ h3 {
     border-left: 2px solid rgba(255, 255, 255, 0.2);
     border-top: 2px solid rgba(255, 255, 255, 0.2);
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    transition: transform 250ms;
 }
 
 .player-btn svg {
@@ -124,7 +139,8 @@ h3 {
     fill: #b6f3ec;
 }
 
-.player-btn:hover {
+.player-btn:hover,
+.player-btn:focus {
     box-shadow: 0 0 0.3rem #4a6ca7;
     cursor: pointer;
 }
@@ -133,6 +149,8 @@ h3 {
     border-style: none;
 }
 
+/* BUTTONS STYLING END */
+
 .result-display {
     display: flex;
     flex-direction: column;
@@ -140,6 +158,11 @@ h3 {
     align-items: center;
     height: 200px;
     width: auto;
+}
+
+.win-lose {
+    white-space: pre;
+    line-height: 1.5rem;
 }
 
 #play-again::after {
@@ -171,6 +194,10 @@ h3 {
     margin-bottom: 2.5rem;
 }
 
+.mk-choice {
+    margin-bottom: 2rem;
+}
+
 .mk-choice::after {
     content: "";
     display: block;
@@ -181,6 +208,8 @@ h3 {
             rgba(0, 19, 53, 0.2));
     margin-top: 0.2rem;
 }
+
+/* RESET */
 
 .reset {
     transform: translateY(-2rem);
@@ -216,7 +245,24 @@ h3 {
     transform: scaleX(0.99);
 }
 
-.author {
-    margin: 0 auto;
-    font-weight: 100;
+/* RESET */
+
+/* Added with JS */
+
+.select-p {
+    transform: translateY(-1rem);
+}
+
+.select-c {
+    transform: translateY(1rem);
+}
+
+.winner {
+    box-shadow: 0 0 0.8rem #01ff22;
+    pointer-events: none;
+}
+
+.loser {
+    box-shadow: 0 0 0.8rem #c9184a;
+    pointer-events: none;
 }
