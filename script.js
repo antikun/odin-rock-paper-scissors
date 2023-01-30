@@ -22,15 +22,15 @@ let winningScore = 3;
 const roundResult = document.querySelector("#win-lose-result");
 const playAgain = document.querySelector("#play-again");
 
-function getComputerChoice(p) {
+function randomNum() {
     const randomNum = Math.floor(Math.random() * 3);
-    p.btn[randomNum].classList.add("select-c");
     return randomNum;
 }
 
 let ties = 0;
 
 function playRound(p1, index1, p2, index2) {
+    p2.btn[index2].classList.add("select-c");
     if (index1 > index2) {
         p1.score++;
         p1.display.textContent = p1.score;
@@ -44,8 +44,8 @@ function playRound(p1, index1, p2, index2) {
     } else {
         p2.score++;
         p2.display.textContent = p2.score;
-        p1.btn[index1].classList.toggle("loser");
-        p2.btn[index2].classList.toggle("winner");
+        p1.btn[index1].classList.add("loser");
+        p2.btn[index2].classList.add("winner");
         roundResult.textContent = `You lose this round! \r\n ${p2.choice[index2]} beats ${p1.choice[index1]}!`;
     }
 }
@@ -92,19 +92,19 @@ function clearSelection(p1, p2) {
 player.btn[0].addEventListener("click", () => {
     clearSelection(player, computer);
     player.btn[0].classList.add("select-p");
-    game(player, 0, computer, getComputerChoice(computer));
+    game(player, 0, computer, randomNum());
 })
 
 player.btn[1].addEventListener("click", () => {
     clearSelection(player, computer);
     player.btn[1].classList.add("select-p");
-    game(player, 1, computer, getComputerChoice(computer));
+    game(player, 1, computer, randomNum());
 })
 
 player.btn[2].addEventListener("click", () => {
     clearSelection(player, computer);
     player.btn[2].classList.add("select-p");
-    game(player, 2, computer, getComputerChoice(computer));
+    game(player, 2, computer, randomNum());
 })
 
 function resetGame() {
