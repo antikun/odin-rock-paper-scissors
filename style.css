@@ -139,7 +139,7 @@ h3 {
     fill: #b6f3ec;
 }
 
-.player-btn:hover {
+.player-btn:not(.winner, .loser):hover {
     box-shadow: 0 0 0.3rem #4a6ca7;
     cursor: pointer;
 }
@@ -259,10 +259,8 @@ h3 {
 
 .winner {
     box-shadow: 0 0 0.8rem #01ff22;
-    pointer-events: none;
 }
 
 .loser {
     box-shadow: 0 0 0.8rem #c9184a;
-    pointer-events: none;
 }
