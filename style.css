@@ -367,8 +367,8 @@ h3 {
         margin-left: 3rem;
     }
 
-    .score-table {
-        margin: 0, 1.5rem;
+    .score-table li {
+        margin: 0 1.5rem;
     }
 }
 
@@ -384,7 +384,7 @@ h3 {
     }
 }
 
-@media (max-width: 445px) {
+@media (max-width: 455px) {
     .icon {
         width: 90px;
         height: 85.75px;
@@ -393,5 +393,13 @@ h3 {
     .player-btn {
         width: 100px;
         height: 95.75px;
+    }
+
+    #tie-score li {
+        margin-left: 2rem;
+    }
+
+    .container {
+        border-width: 0.5rem;
     }
 }
