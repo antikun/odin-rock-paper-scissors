@@ -1,3 +1,14 @@
+// --vh 
+
+let vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty("--vh", `${vh}px`);
+window.addEventListener("resize", () => {
+    let vh = widnow.innerHeight * 0.01;
+    document.documentElement.style.setProperty("--vh", `#{vh}px`);
+})
+
+// --vh 
+
 const computer = {
     score: 0,
     btn: [document.querySelector("#computer-rock"), document.querySelector("#computer-paper"), document.querySelector("#computer-scissors")],
@@ -157,3 +168,4 @@ playTo.addEventListener("change", () => {
 })
 
 playAgain.addEventListener("click", resetGame);
+

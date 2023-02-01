@@ -8,6 +8,7 @@ html {
 
 body {
     min-height: 100vh;
+    height: calc(car(--vh, 1vh) * 100);
     margin: 0;
     padding: 0;
     display: flex;
@@ -397,7 +398,7 @@ h3 {
         height: 95.75px;
     }
 
-    #tie-score li {
+    #tie-score {
         margin-left: 1.5rem;
     }
 
