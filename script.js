@@ -20,7 +20,32 @@ const playTo = document.querySelector("#play-to")
 let winningScore = 3;
 
 const roundResult = document.querySelector("#win-lose-result");
+
+// MODAL start
+
+const gameOverResult = document.querySelector("#game-over-result");
+const contentWrapper = document.querySelector(".content-wrapper");
+const popupWrapper = document.querySelector(".popup-wrapper");
 const playAgain = document.querySelector("#play-again");
+
+function openModal() {
+    contentWrapper.classList.toggle("modal-active");
+    popupWrapper.classList.toggle("modal-active");
+}
+
+function closeModal() {
+    contentWrapper.classList.remove("modal-active");
+    popupWrapper.classList.remove("modal-active");
+}
+
+popupWrapper.addEventListener("click", (e) => {
+    const isOutside = !e.target.closest(".popup-content");
+    if (isOutside) {
+        closeModal();
+    }
+});
+
+// MODAL end
 
 function randomNum() {
     const randomNum = Math.floor(Math.random() * 3);
@@ -59,16 +84,17 @@ function game(p1, index1, p2, index2) {
         playRound(p1, index1, p2, index2);
     } if (p1.score == winningScore) {
         isGameOver = true;
-        roundResult.textContent = `CONGRATS! \r\n YOU WON THE GAME!`;
-        playAgain.textContent = "Play again?";
+        openModal();
+        gameOverResult.textContent = `CONGRATS! \r\n YOU WON THE GAME!`;
         setDisabled();
     } if (p2.score == winningScore) {
         isGameOver = true;
-        roundResult.textContent = `OH NO! \r\n YOU LOST THE GAME!`
-        playAgain.textContent = "Play again?";
+        openModal();
+        gameOverResult.textContent = `OH NO! \r\n YOU LOST THE GAME!`
         setDisabled();
     }
 }
+
 
 function setDisabled() {
     for (let i = 0; i < 3; i++) {
@@ -111,6 +137,7 @@ player.btn[2].addEventListener("click", () => {
 
 function resetGame() {
     isGameOver = false;
+    closeModal();
     clearSelection(player, computer);
     removeDisabled();
     player.score = 0;
@@ -120,7 +147,6 @@ function resetGame() {
     computer.display.textContent = 0;
     tieScore.textContent = 0;
     roundResult.textContent = "";
-    playAgain.textContent = "";
 }
 
 resetBtn.addEventListener("click", resetGame);
