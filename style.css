@@ -140,6 +140,8 @@ h3 {
     border-radius: 0.25rem;
     border-left: 2px solid rgba(255, 255, 255, 0.2);
     border-top: 2px solid rgba(255, 255, 255, 0.2);
+    border-right: 2px solid rgba(0, 0, 0, 0.4);
+    border-bottom: 3px solid rgba(0, 0, 0, 0.8);
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
     transition: transform 250ms;
 }
@@ -396,7 +398,7 @@ h3 {
     }
 
     #tie-score li {
-        margin-left: 2rem;
+        margin-left: 1.5rem;
     }
 
     .container {
