@@ -67,7 +67,7 @@ h3 {
     background:
         radial-gradient(#002668, #10002b);
     display: block;
-    width: 100vh;
+    width: 100vw;
     height: 3px;
 }
 
@@ -358,4 +358,40 @@ h3 {
 
 #play-again:hover {
     cursor: pointer;
+}
+
+/* RESPONSIVENESS */
+
+@media (max-width: 920px) {
+    #tie-score {
+        margin-left: 3rem;
+    }
+
+    .score-table {
+        margin: 0, 1.5rem;
+    }
+}
+
+@media (max-width: 510px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0;
+    }
+}
+
+@media (max-width: 445px) {
+    .icon {
+        width: 90px;
+        height: 85.75px;
+    }
+
+    .player-btn {
+        width: 100px;
+        height: 95.75px;
+    }
 }
