@@ -67,7 +67,7 @@ h3 {
     background:
         radial-gradient(#002668, #10002b);
     display: block;
-    width: 100vw;
+    width: 80vw;
     height: 3px;
 }
 
@@ -377,6 +377,15 @@ h3 {
 @media (max-width: 510px) {
     html {
         font-size: 16px;
+    }
+
+    .popup-content {
+        max-width: 100%;
+    }
+
+    .popup-content::after,
+    .popup-content::before {
+        max-width: 100%;
     }
 }
 
