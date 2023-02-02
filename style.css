@@ -119,6 +119,11 @@ h3 {
     transition: transform 250ms;
 }
 
+svg {
+    width: 80px;
+    height: 80px;
+}
+
 .icon svg {
     transform: rotate(90deg);
     fill: #64a5db;
@@ -380,18 +385,24 @@ h3 {
     }
 
     .popup-content {
-        max-width: 100%;
+        max-width: 100vw;
     }
 
     .popup-content::after,
     .popup-content::before {
-        max-width: 100%;
+        max-width: 100vw;
     }
 }
 
 @media (max-width: 480px) {
+    .content-wrapper {
+        padding: 0;
+        margin: 0;
+    }
+    
     .container {
         padding: 0;
+        margin: 0;
     }
 
     .footer {
@@ -427,4 +438,20 @@ h3 {
     #tie-score {
         margin-left: 1rem;
     }
+
+    .icon {
+        width: 80px;
+        height: 75.75px;
+    }
+
+    .player-btn {
+        width: 90px;
+        height: 85.75px;
+    }
+
+    svg {
+        width: 65px;
+        height: 65px;
+    }
+
 }
