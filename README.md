@@ -17,15 +17,15 @@ In the second stage of the project I added a Graphical User Interface, for which
 
 ### Results
 
+#### Screenshots
+<img src="./images/rps-1.png"><img src="./images/rps-2.png">
+<img src="./images/rps-3.png"><img src="./images/rps-4.png">
+
+
 * Learned a lot about function declarations and improved my **overall understanding** of how JavaScript works.
 * Got better at **refactoring** the code to make it cleaner by combining booleans, object literals, arrays, functions, event listeners, loops, etc in order to **manipulate the DOM**
 * Improved my **CSS skills** - **media queries for responsive design, gradients, transitions, pseudo elements**, etc.
 * Learned how to make **modals**.
-
-
-#### Screenshots
-<img src="./images/rps-1.png" width="300px" height="auto"><img src="./images/rps-2.png" width="300px" height="auto">
-<img src="./images/rps-3.png" width="300px" height="auto"><img src="./images/rps-4.png" width="300px" height="auto">
 
 ### Things to improve
 * Responsive design for mobile devices, small and big(4k) screens.
