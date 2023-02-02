@@ -45,7 +45,7 @@ body {
 }
 
 h1 {
-    margin: 1rem auto;
+    margin: 1rem 0;
 }
 
 h3 {
@@ -430,7 +430,10 @@ svg {
     }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 420px) {
+    h1 {
+        font-size: 1.7rem;
+    }
     .score-table li {
         margin: 0 1rem;
     }
