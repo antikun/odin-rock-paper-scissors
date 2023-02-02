@@ -156,6 +156,11 @@ svg {
     fill: #b6f3ec;
 }
 
+.player-btn:not(.winner, .loser):hover {
+    box-shadow: 0 0 0.3rem #4a6ca7;
+    cursor: pointer;
+}
+
 .player-btn:active {
     border-style: none;
 }
@@ -219,6 +224,13 @@ svg {
     -webkit-clip-path: polygon(10% 0, 90% 0, 100% 50%, 90% 100%, 10% 100%, 0 50%);
     clip-path: polygon(10% 0, 90% 0, 100% 50%, 90% 100%, 10% 100%, 0 50%);
     border: #5d0023;
+}
+
+.reset-btn:hover {
+    background-image: linear-gradient(rgba(245, 155, 155, 0.2), rgba(245, 155, 155, 0.2)),
+        -webkit-linear-gradient(bottom, #5d0023 50%, #ff2276 50%, #5d0023);
+    color: #290211;
+    cursor: pointer;
 }
 
 .reset-btn:active {
@@ -345,32 +357,17 @@ svg {
     transition: opacity 250ms, transform 250ms;
 }
 
+#play-again:hover::after {
+    opacity: 1;
+    transform: scale(1);
+    transform: translate3d(0, 0.3rem, 0);
+}
+
+#play-again:hover {
+    cursor: pointer;
+}
 
 /* RESPONSIVENESS */
-
-@media (hover: hover) {
-    .player-btn:not(.winner, .loser):hover {
-        box-shadow: 0 0 0.3rem #4a6ca7;
-        cursor: pointer;
-    }
-
-    .reset-btn:hover {
-        background-image: linear-gradient(rgba(245, 155, 155, 0.2), rgba(245, 155, 155, 0.2)),
-            -webkit-linear-gradient(bottom, #5d0023 50%, #ff2276 50%, #5d0023);
-        color: #290211;
-        cursor: pointer;
-    }
-
-    #play-again:hover::after {
-        opacity: 1;
-        transform: scale(1);
-        transform: translate3d(0, 0.3rem, 0);
-    }
-
-    #play-again:hover {
-        cursor: pointer;
-    }
-}
 
 @media (max-width: 920px) {
     #tie-score {
