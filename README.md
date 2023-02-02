@@ -18,8 +18,8 @@ In the second stage of the project I added a Graphical User Interface, for which
 ### Results
 
 #### Screenshots
-<img src="./images/rps-1.png"><img src="./images/rps-2.png">
-<img src="./images/rps-3.png"><img src="./images/rps-4.png">
+<img src="./images-rps/rps-1.png"><img src="./images-rps/rps-2.png">
+<img src="./images-rps/rps-3.png"><img src="./images-rps/rps-4.png">
 
 
 * Learned a lot about function declarations and improved my **overall understanding** of how JavaScript works.
