@@ -18,8 +18,7 @@ In the second stage of the project I added a Graphical User Interface, for which
 ### Results
 
 #### Screenshots
-<img src="./images-rps/rps-1.png" width="100%" height="auto">
-<img src="./images-rps/rps-2.png" width="30%" height="auto"><img src="./images-rps/rps-3.png" width="30%" height="auto"><img src="./images-rps/rps-4.png" width="30%" height="auto">
+<img src="./images-rps/rps-1.png" width="100%" height="auto"><img src="./images-rps/rps-2.png" width="30%" height="auto"><img src="./images-rps/rps-3.png" width="30%" height="auto"><img src="./images-rps/rps-4.png" width="30%" height="auto">
 
 
 * Learned a lot about function declarations and improved my **overall understanding** of how JavaScript works.
